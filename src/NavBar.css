@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css?family=Basic&display=swap');
+
+.Navbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 6vh;
+}
+.logo {
+  margin-right: 15px;
+  padding: 0 13px;
+  font-size: 28px;
+  background: #eceff1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.logo a {
+  text-decoration: none;
+  color: black;
+  font-family: 'Basic', sans-serif;
+}
+.slider {
+  width: 340px;
+  margin: 0px 10px;
+  display: inline-block;
+}
+
+.rc-slider-track {
+  background: transparent;
+}
+
+.rc-slider-rail {
+  height: 10px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  border: solid 1px black;
+}
+
+.rc-slider-handle,
+.rc-slider-handle:hover,
+.rc-slider-handle:active,
+.rc-slider-handle:focus {
+  background-color: #62a845;
+  outline: none;
+  border: 2px solid black;
+  box-shadow: none;
+  height: 20px;
+  width: 20px;
+}
+
+.select-container {
+  margin-left: auto;
+  margin-right: 1rem;
+}

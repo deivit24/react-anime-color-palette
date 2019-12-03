@@ -1,5 +1,4 @@
 import chroma from 'chroma-js';
-
 const levels = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900];
 
 function generatePalette(starterPalette) {
@@ -12,7 +11,6 @@ function generatePalette(starterPalette) {
   for (let level of levels) {
     newPalette.colors[level] = [];
   }
-
   for (let color of starterPalette.colors) {
     let scale = getScale(color.color, 10).reverse();
     for (let i in scale) {
@@ -23,14 +21,13 @@ function generatePalette(starterPalette) {
         rgb: chroma(scale[i]).css(),
         rgba: chroma(scale[i])
           .css()
-          .replace('rgba', 'rgba')
+          .replace('rgb', 'rgba')
           .replace(')', ',1.0)')
       });
     }
   }
   return newPalette;
 }
-
 function getRange(hexColor) {
   const end = '#fff';
   return [
