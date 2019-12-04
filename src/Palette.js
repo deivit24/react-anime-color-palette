@@ -1,8 +1,9 @@
 import React from 'react';
+
 import ColorBox from './ColorBox';
 import NavBar from './NavBar';
 // CSS
-
+import 'emoji-mart/css/emoji-mart.css';
 import './Palette.css';
 
 class Palette extends React.Component {
@@ -27,7 +28,7 @@ class Palette extends React.Component {
     });
   }
   render() {
-    const { colors } = this.props.palette;
+    const { colors, paletteName, emoji } = this.props.palette;
     const { level, format } = this.state;
     const colorBoxes = colors[level].map(color => (
       <ColorBox background={color[format]} name={color.name} />
@@ -43,6 +44,10 @@ class Palette extends React.Component {
           {/* Bunch of Color Boxes */}
           {colorBoxes}
         </div>
+        <footer className="Palette-footer">
+          {paletteName}
+          <span className="emoji">{emoji}</span>
+        </footer>
       </div>
     );
   }

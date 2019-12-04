@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import Snackbar from '@material-ui/core/Snackbar';
@@ -36,7 +37,7 @@ class NavBar extends React.Component {
     return (
       <header className="Navbar">
         <div className="logo">
-          <a href="#">AnimeColors</a>
+          <Link to="/">AnimeColors</Link>
         </div>
         <div className="slider-container">
           <span>Level: {level}</span>
