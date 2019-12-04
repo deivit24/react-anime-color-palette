@@ -1,4 +1,9 @@
-export default [
+// import React from 'react';
+// import Cat from './cat.jpg';
+// import { Emoji } from 'emoji-mart';
+
+// let Dog = <Emoji emoji={{ id: 'santa', skin: 3 }} size={16} />;
+const seedColors = [
   {
     paletteName: 'Material UI Colors',
     id: 'material-ui-colors',
@@ -55,7 +60,7 @@ export default [
   {
     paletteName: 'Flat UI Colors Dutch',
     id: 'flat-ui-colors-dutch',
-    emoji: '🇳🇱',
+    emoji: `DU`,
     colors: [
       { name: 'Sunflower', color: '#FFC312' },
       { name: 'Energos', color: '#C4E538' },
@@ -109,7 +114,7 @@ export default [
   {
     paletteName: 'Flat UI Colors Aussie',
     id: 'flat-ui-colors-aussie',
-    emoji: '🇦🇺',
+    emoji: 'AU',
     colors: [
       { name: 'Beekeeper', color: '#f6e58d' },
       { name: 'SpicedNectarine', color: '#ffbe76' },
@@ -242,3 +247,5 @@ export default [
     ]
   }
 ];
+
+export default seedColors;

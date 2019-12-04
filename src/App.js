@@ -3,6 +3,7 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import Palette from './Palette';
 import seedColors from './seedColors';
 import PaletteList from './PaletteList';
+import SinglePalette from './SinglePalette';
 import { generatePalette } from './ColorHelpers';
 
 class App extends React.Component {
@@ -17,7 +18,9 @@ class App extends React.Component {
         <Route
           exact
           path="/"
-          render={() => <PaletteList palettes={seedColors} />}
+          render={routeProps => (
+            <PaletteList palettes={seedColors} {...routeProps} />
+          )}
         />
         <Route
           exact
@@ -30,11 +33,19 @@ class App extends React.Component {
             />
           )}
         />
+        <Route
+          path="/palette/:paletteId/:colorId"
+          render={routeProps => (
+            <SinglePalette
+              colorId={routeProps.match.params.colorId}
+              palette={generatePalette(
+                this.findPalette(routeProps.match.params.paletteId)
+              )}
+            />
+          )}
+        />
         <Redirect path="/error404" render={() => <h1>error 404</h1>} />
       </Switch>
-      // <div>
-      //   <Palette palette={generatePalette(seedColors[3])} />
-      // </div>
     );
   }
 }
