@@ -1,10 +1,11 @@
 import React from 'react';
-
+import PaletteFooter from './PaletteFooter';
 import ColorBox from './ColorBox';
 import NavBar from './NavBar';
 // CSS
 import 'emoji-mart/css/emoji-mart.css';
-import './Palette.css';
+import { withStyles } from '@material-ui/styles';
+import style from './styles/PaletteStyles';
 
 class Palette extends React.Component {
   constructor(props) {
@@ -29,6 +30,7 @@ class Palette extends React.Component {
   }
   render() {
     const { colors, paletteName, emoji, id } = this.props.palette;
+    const { classes } = this.props;
     const { level, format } = this.state;
     const colorBoxes = colors[level].map(color => (
       <ColorBox
@@ -38,30 +40,29 @@ class Palette extends React.Component {
         id={color.id}
         paletteId={id}
         moreUrl={`/palette/${id}/${color.id}`}
-        showLink={true}
+        showFullPalette={true}
       />
     ));
     return (
-      <div className="Palette">
+      <div className={classes.palette}>
         <NavBar
           level={level}
           changeLevel={this.changeLevel}
           handleChange={this.handleFormat}
           showingAllColors={true}
         />
-        <div className="Palette-colors">
+        <div className={classes.paletteColors}>
           {/* Bunch of Color Boxes */}
           {colorBoxes}
         </div>
-        <footer className="Palette-footer">
+        {/* <footer className="Palette-footer">
           {paletteName}
-          <span className="emoji">
-            <img src={emoji} alt="" />
-          </span>
-        </footer>
+          <span className="emoji">{emoji}</span>
+        </footer> */}
+        <PaletteFooter paletteName={paletteName} emoji={emoji} />
       </div>
     );
   }
 }
 
-export default Palette;
+export default withStyles(style)(Palette);

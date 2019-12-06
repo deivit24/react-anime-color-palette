@@ -1,38 +1,10 @@
 import React from 'react';
 import MiniPalette from './MiniPalette';
+
 import { Link } from 'react-router-dom';
 import { withStyles } from '@material-ui/styles';
+import style from './styles/paletteListStyles';
 
-const styles = {
-  root: {
-    backgroundColor: 'blue',
-    height: '100vh',
-    display: 'flex',
-    alighItems: 'flex-start',
-    justifyContent: 'center'
-  },
-  container: {
-    width: '50%',
-    display: 'flex',
-    alignItems: 'flex-start',
-    flexDirection: 'column',
-    felxWrap: 'wrap'
-  },
-
-  nav: {
-    display: 'flex',
-    width: '100%',
-    justifyContent: 'space-between',
-    color: 'white'
-  },
-  palettes: {
-    boxSizing: 'border-box',
-    width: '100%',
-    display: 'grid',
-    gridTemplateColumns: 'repeat(3, 30%)',
-    gridGap: '5%'
-  }
-};
 class PaletteList extends React.Component {
   goToPalette(id) {
     console.log('Hi');
@@ -44,7 +16,7 @@ class PaletteList extends React.Component {
       <div className={classes.root}>
         <div className={classes.container}>
           <nav className={classes.nav}>
-            <h1>React Colors</h1>
+            <h1>AnimeColors</h1>
           </nav>
           <div className={classes.palettes}>
             {palettes.map(palette => (
@@ -62,4 +34,4 @@ class PaletteList extends React.Component {
   }
 }
 
-export default withStyles(styles)(PaletteList);
+export default withStyles(style)(PaletteList);

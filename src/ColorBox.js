@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import CopyToClipboard from 'react-copy-to-clipboard';
-import './ColorBox.css';
+import style from './styles/colorBoxStyles';
+import { withStyles } from '@material-ui/styles';
 
 class ColorBox extends React.Component {
   constructor(props) {
@@ -22,28 +23,33 @@ class ColorBox extends React.Component {
     );
   }
   render() {
-    const { name, background, moreUrl, showLink } = this.props;
+    const { name, background, moreUrl, showFullPalette, classes } = this.props;
     const { copied } = this.state;
+
     return (
       <CopyToClipboard text={background} onCopy={this.changeCopyState}>
-        <div style={{ background }} className="ColorBox">
+        <div style={{ background }} className={classes.colorBox}>
           <div
-            className={`copy-overlay  ${copied && 'show'}`}
+            className={`${classes.copyOverlay}  ${copied &&
+              classes.showOverlay}`}
             style={{ background }}
           />
-          <div className={`copy-msg  ${copied && 'show'}`}>
+          <div
+            className={`${classes.copyMessage}  ${copied &&
+              classes.showMessage}`}
+          >
             <h1>Copied!</h1>
-            <p>{background}</p>
+            <p className={classes.copyText}>{background}</p>
           </div>
-          <div className="copy-container">
-            <div className="box-content">
-              <span>{name}</span>
+          <div>
+            <div className={classes.boxContent}>
+              <span className={classes.colorName}>{name}</span>
             </div>
-            <button className="copy-button">Copy</button>
+            <button className={classes.copyButton}>Copy</button>
           </div>
-          {showLink && (
+          {showFullPalette && (
             <Link to={`${moreUrl}`} onClick={e => e.stopPropagation()}>
-              <span className="see-more">More</span>
+              <span className={classes.seeMore}>More</span>
             </Link>
           )}
         </div>
@@ -52,4 +58,4 @@ class ColorBox extends React.Component {
   }
 }
 
-export default ColorBox;
+export default withStyles(style)(ColorBox);
